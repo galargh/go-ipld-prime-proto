@@ -10,9 +10,9 @@ import (
 
 var (
 	// ErrNoAutomaticDecoding means the NodeBuilder must provide a fast path decoding method on its own
-	ErrNoAutomaticDecoding = errors.New("No automatic decoding for this type, node builder must provide fast path")
+	ErrNoAutomaticDecoding = errors.New("no automatic decoding for this type, node builder must provide fast path")
 	// ErrNoAutomaticEncoding means the Node must provide a fast path encoding method on its own
-	ErrNoAutomaticEncoding                           = errors.New("No automatic encoding for this type, node must provide fast path")
+	ErrNoAutomaticEncoding                           = errors.New("no automatic encoding for this type, node must provide fast path")
 	_                      cidlink.MulticodecDecoder = PBDecoder
 	_                      cidlink.MulticodecEncoder = PBEncoder
 	_                      cidlink.MulticodecDecoder = RawDecoder
