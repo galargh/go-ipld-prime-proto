@@ -4,12 +4,16 @@ import (
 	"bytes"
 	"testing"
 
+	detectrace "github.com/ipfs/go-detect-race"
 	dag "github.com/ipfs/go-merkledag"
 	dagpb "github.com/ipld/go-ipld-prime-proto"
 	. "github.com/warpfork/go-wish"
 )
 
 func TestRoundTripRaw(t *testing.T) {
+	if detectrace.WithRace() {
+		t.Skip("skipping due to #25")
+	}
 	randBytes := randomBytes(256)
 	rawNode, err := makeRawNode(randBytes)
 	Wish(t, err, ShouldEqual, nil)
@@ -30,6 +34,9 @@ func TestRoundTripRaw(t *testing.T) {
 }
 
 func TestRoundTripProtbuf(t *testing.T) {
+	if detectrace.WithRace() {
+		t.Skip("skipping due to #25")
+	}
 	a := dag.NewRawNode([]byte("aaaa"))
 	b := dag.NewRawNode([]byte("bbbb"))
 	c := dag.NewRawNode([]byte("cccc"))
