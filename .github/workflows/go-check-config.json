@@ -1,0 +1,5 @@
+{
+  "govet": {
+    "flags": "-composites=false"
+  }
+}
